@@ -1,22 +1,20 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
-	// Create a ClapTrap object
-	ClapTrap clapTrap("John");
+	// Create a ScavTrap object
+	ScavTrap scavTrap("Guardian");
 
-	// Test attack function
-	clapTrap.attack("Enemy");
+	// Test attack function (inherited from ClapTrap)
+	scavTrap.attack("Enemy");
 
-	// Test takeDamage function
-	clapTrap.takeDamage(5);
+	// Test takeDamage function (inherited from ClapTrap)
+	scavTrap.takeDamage(20);
 
-	// Test beRepaired function
-	clapTrap.beRepaired(3);
+	// Test beRepaired function (inherited from ClapTrap)
+	scavTrap.beRepaired(10);
 
-	// Test edge cases
-	clapTrap.takeDamage(10); // Should reduce hit points to 0
-	clapTrap.attack("Enemy"); // Should fail (no hit points left)
-	clapTrap.beRepaired(5); // Should fail (no hit points left)
+	// Test guardGate function (unique to ScavTrap)
+	scavTrap.guardGate();
 
 	return 0;
 }
