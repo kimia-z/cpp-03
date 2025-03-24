@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = ScavTrap
 
 CFLAGS = -Wall -Wextra -Werror
 
