@@ -1,22 +1,27 @@
 #include "ClapTrap.hpp"
 
-int main() {
-	// Create a ClapTrap object
+int main()
+{
 	ClapTrap clapTrap("John");
 
-	// Test attack function
-	clapTrap.attack("Enemy");
+	clapTrap.attack("People");
 
-	// Test takeDamage function
 	clapTrap.takeDamage(5);
 
-	// Test beRepaired function
 	clapTrap.beRepaired(3);
 
-	// Test edge cases
-	clapTrap.takeDamage(10); // Should reduce hit points to 0
-	clapTrap.attack("Enemy"); // Should fail (no hit points left)
-	clapTrap.beRepaired(5); // Should fail (no hit points left)
+	clapTrap.takeDamage(10);
+	clapTrap.attack("Others");
+	clapTrap.beRepaired(5);
 
+	// Another test
+	ClapTrap otherClapTrap("Harry");
+	otherClapTrap.attack("Army");
+	otherClapTrap.beRepaired(2);
+	otherClapTrap.takeDamage(25);
+	otherClapTrap.attack("Fans");
+	otherClapTrap.beRepaired(5);
+	otherClapTrap.takeDamage(10);
+	
 	return 0;
 }
