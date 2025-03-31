@@ -1,10 +1,15 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name) : _name(name)
+ClapTrap::ClapTrap() :_name("DEFAULT"), _hitPoint(10), _energyPoints(10), _attackDamage(0)
+{
+	std::cout << "ClapTrap Defualt constructor called!" << std::endl;
+}
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoint(10), _energyPoints(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " << name << " is born!" << std::endl;
 }
-ClapTrap::ClapTrap(const ClapTrap &source) : _name(source._name)
+ClapTrap::ClapTrap(const ClapTrap &source) : _name(source._name), _hitPoint(source._hitPoint)
+			, _energyPoints(source._energyPoints), _attackDamage(source._attackDamage)
 {
 	std::cout << "ClapTrap " << _name << " Copied!" << std::endl;
 }
@@ -14,9 +19,13 @@ ClapTrap::~ClapTrap()
 }
 ClapTrap &ClapTrap::operator=(const ClapTrap &source)
 {
-	std::cout << "ClapTrap " << _name << " is assigned!" << std::endl;
 	if (this != &source)
-		this->_name = source._name;
+	{
+		this->_hitPoint = source._hitPoint;
+		this->_attackDamage = source._attackDamage;
+		this->_energyPoints = source._energyPoints;
+	}
+	std::cout << "ClapTrap " << _name << " is assigned!" << std::endl;
 	return *this;
 }
 
@@ -61,5 +70,5 @@ void ClapTrap::beRepaired(unsigned int amount)
 		return;
 	}
 	std::cout << "ClapTrap " << this->_name
-	<< " is out of hit points or energy points and can't attack!" << std::endl;
+	<< " is out of hit points or energy points and can't repaired!" << std::endl;
 }
