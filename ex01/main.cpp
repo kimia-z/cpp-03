@@ -22,13 +22,14 @@ void testEdgeCases()
 	std::cout << "\n===== EDGE CASE TEST =====\n";
 	ScavTrap scav("Adam");
 
-	for (int i = 0; i < 52; i++) {
+	for (int i = 0; i < 51; i++) {
 		scav.attack("Mark");
 	}
 
 	scav.takeDamage(80);
 	scav.attack("Another");
 	scav.beRepaired(10);
+	scav.guardGate();
 }
 
 void testCopyOperations()
